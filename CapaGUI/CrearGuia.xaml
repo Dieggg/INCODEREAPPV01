@@ -1,0 +1,101 @@
+﻿<Controls:MetroWindow x:Class="CapaGUI.CrearGuia"
+       
+        
+        
+         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CapaGUI"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        Title="CrearGuia" Height="680" Width="700" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Image x:Name="cbxMaterial" Source="Imagenes/bc1.jpg" Stretch="UniformToFill" Opacity="10">
+        </Image>
+
+        <StackPanel Orientation="Vertical">
+            <Label FontWeight="Bold" FontSize="16" Background="#FF595959" Foreground="#DDFFFFFF" Margin="20 10 0 0" Content="1.2 INGRESO GUÍA DE DESPACHO - Materiales"/>
+            <StackPanel Orientation="Horizontal" Margin="30,0,0,0"/>
+
+
+
+
+            <StackPanel Orientation="Horizontal"  Margin="30,20,30,0" Background="White">
+                <Label Content="Id:" Margin="0 0 0 5"></Label>
+                <Label  x:Name="lblId"  VerticalAlignment="top" Margin="0 0 0 0"  ></Label>
+
+                <Label Content="PROVEEDOR:" Margin="0 0 0 5"></Label>
+                <Label  x:Name="lblNombreProveedor"  VerticalAlignment="top" Margin="0 0 0 0"  ></Label>
+                <Label Content="RUT:" Margin="100 0 0 5"></Label>
+                <Label x:Name="lblRutProveedor" VerticalAlignment="top" Margin="0 0 0 0"  ></Label>
+          
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal"  Margin="30,10,30,0" Background="White">
+                <Label Content="DIRECCIÓN:" Margin="0 0 0 5"></Label>
+                <Label x:Name="lblDireccionProveedor" Content="[DIRECCION PROVEEDOR]" VerticalAlignment="top" Margin="0 0 0 0"  ></Label>
+                <Label Content="GIRO:" Margin="0 0 0 5"></Label>
+                <Label x:Name="lblGiroProveedor" Content="[GIRO PROVEEDOR]" VerticalAlignment="top" Margin="0 0 0 0"  ></Label>
+                
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal"  Margin="30 20,0,0">
+                <Label Content="2. Favor ingresar materiales recepcionados:" VerticalAlignment="top" Margin="0 0 0 0" FontWeight="Bold"></Label>
+
+            </StackPanel>
+                
+                <StackPanel  Orientation="Horizontal" Margin="0 10 0 0">
+                <Label Margin="30 0 0 0">Codigo</Label>
+                <TextBox x:Name="txtCodigo" Margin="71 0 0 0" Width="200"></TextBox>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal" Margin="0 20 0 0">
+                <Label Margin="30 0 0 0" >Material</Label>
+                <ComboBox Margin="60 0 0 0" Width="200"></ComboBox>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal" Margin="0 20 0 0">
+                <Label Margin="30 0 0 0">Cantidad</Label>
+                <TextBox x:Name="txtCantidad" Margin="60 0 0 0" Width="200"></TextBox>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal" Margin="0 20 0 0">
+                <Label Margin="30 0 0 0">U. Med.</Label>
+                <TextBox x:Name="txtUm" Margin="68 0 0 0" Width="30" ></TextBox>
+
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal" Margin="30 20 0 30">
+
+                <Button x:Name="btnCargarMaterial" Click="BtnCargarMaterial_Click" >Cargar Material a listado</Button>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal">
+                <DataGrid x:Name="dgGuia" Height="130" Width="440" Foreground="DeepSkyBlue" Margin="30 0 0 0" AutoGenerateColumns="True" Style="{StaticResource AzureDataGrid}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Codigo"  IsReadOnly="True"  Binding="{Binding Path=Codigo}"/>
+                        <DataGridTextColumn Header="Material "  IsReadOnly="True" Binding="{Binding Path=Material}"  />
+                        <DataGridTextColumn Header="Cantidad"  IsReadOnly="True"  Binding="{Binding Path=Cantidad}" />
+                        <DataGridTextColumn Header="Unidad de Medida"  IsReadOnly="True"  Binding="{Binding Path=UM}" />
+                    </DataGrid.Columns>
+
+                </DataGrid>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal" Margin="30 10 0 0" HorizontalAlignment="Right">
+                <Button x:Name="btnGuardarGuia" Margin="0 0 10 0" Click="btnGuardarGuia_Click">Guardar</Button>
+                <Button x:Name="btnIngresarGuia" Margin="0 0 10 0" Click="BtnIngresarGuia_Click">Ingresar</Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Background="DeepSkyBlue" Height="25"  Margin="0 10 0 0">
+                <Image x:Name="imgEstado"></Image>
+                <Label x:Name="lblMensaje"></Label>
+            </StackPanel>
+
+
+        </StackPanel>
+
+
+    </Grid>
+</Controls:MetroWindow>
