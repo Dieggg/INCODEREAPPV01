@@ -32,7 +32,7 @@ namespace CapaGUI
         {
             InitializeComponent();
             CargarProductos();
-            txtCantidadProducto.Text = "0";
+            txtCantidad.Text = "0";
             btnIngresarGuia.IsEnabled = false;
         }
 
@@ -40,36 +40,36 @@ namespace CapaGUI
         {
 
             
-            if ( txtCantidad.Text != "" && txtCodigo.Text != "" && txtUm.Text != "")
-            {
-                var data = new ListaGuia { Codigo = txtCodigo.Text , Cantidad = txtCantidad.Text, UM = txtUm.Text };
-                dgGuia.Items.Add(data); 
+            //if ( txtCantidad.Text != "" && txtCodigo.Text != "" && txtUm.Text != "")
+            //{
+            //    var data = new ListaGuia { Codigo = txtCodigo.Text , Cantidad = txtCantidad.Text, UM = txtUm.Text };
+            //    dgGuia.Items.Add(data); 
               
-                txtCantidad.Text = "";
-                txtCodigo.Text = "";
-                txtUm.Text = "";
-                BitmapImage bi3 = new BitmapImage();
-                bi3.BeginInit();
-                bi3.UriSource = new Uri("Imagenes/Iconos/iconoCheck.png", UriKind.Relative);
-                bi3.EndInit();
-                imgEstado.Stretch = Stretch.Fill;
-                imgEstado.Source = bi3;
-                lblMensaje.Content = "Material Cargado correctamente.";
+            //    txtCantidad.Text = "";
+            //    txtCodigo.Text = "";
+            //    txtUm.Text = "";
+            //    BitmapImage bi3 = new BitmapImage();
+            //    bi3.BeginInit();
+            //    bi3.UriSource = new Uri("Imagenes/Iconos/iconoCheck.png", UriKind.Relative);
+            //    bi3.EndInit();
+            //    imgEstado.Stretch = Stretch.Fill;
+            //    imgEstado.Source = bi3;
+            //    lblMensaje.Content = "Material Cargado correctamente.";
                
 
 
-            }
-            else
-            {
-                BitmapImage bi3 = new BitmapImage();
-                bi3.BeginInit();
-                bi3.UriSource = new Uri("Imagenes/Iconos/iconoError.png", UriKind.Relative);
-                bi3.EndInit();
-                imgEstado.Stretch = Stretch.Fill;
-                imgEstado.Source = bi3;
-                lblMensaje.Content = "Favor llenar los campos de material";
+            //}
+            //else
+            //{
+            //    BitmapImage bi3 = new BitmapImage();
+            //    bi3.BeginInit();
+            //    bi3.UriSource = new Uri("Imagenes/Iconos/iconoError.png", UriKind.Relative);
+            //    bi3.EndInit();
+            //    imgEstado.Stretch = Stretch.Fill;
+            //    imgEstado.Source = bi3;
+            //    lblMensaje.Content = "Favor llenar los campos de material";
 
-            }
+            //}
 
 
         }
@@ -131,7 +131,7 @@ namespace CapaGUI
 
             ServiceReferenceGuias.Compra auxCompra = new ServiceReferenceGuias.Compra
             {
-                NumeroUnidades = Int32.Parse(txtCantidadProducto.Text),
+                NumeroUnidades = Int32.Parse(txtCantidad.Text),
                 IdProducto = auxIdProducto
             };
 

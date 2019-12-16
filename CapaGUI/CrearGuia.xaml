@@ -64,7 +64,7 @@
 
             <StackPanel  Orientation="Horizontal" Margin="30 20 0 30"/>
             <StackPanel  Orientation="Horizontal">
-                <DataGrid x:Name="dgGuia" Height="130" Width="440" Foreground="DeepSkyBlue" Margin="30 0 0 0" AutoGenerateColumns="True" Style="{StaticResource AzureDataGrid}">
+                <DataGrid x:Name="dgGuia" Height="130" Width="440" Foreground="DeepSkyBlue" Margin="30 0 0 0" AutoGenerateColumns="False" Style="{StaticResource AzureDataGrid}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Codigo"  IsReadOnly="True"  Binding="{Binding IdProducto}"/>
                         <DataGridTextColumn Header="Material "  IsReadOnly="True" Binding="{Binding NumeroUnidades}"  />
