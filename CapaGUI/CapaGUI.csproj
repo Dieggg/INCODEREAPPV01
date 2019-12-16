@@ -96,6 +96,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Connected Services\ServiceReferenceGuias\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServiceReferenceProductos\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -161,6 +166,19 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\ServiceReferenceGuias\CapaGUI.ServiceReferenceGuias.AgregarCompraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceGuias\CapaGUI.ServiceReferenceGuias.AgregarGuiaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceGuias\CapaGUI.ServiceReferenceGuias.CargarGuiaCompletaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceGuias\CapaGUI.ServiceReferenceGuias.HelloWorldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceGuias\WebServiceGuias.wsdl" />
     <None Include="Connected Services\ServiceReferenceProductos\WebServiceProductos.wsdl" />
     <None Include="Connected Services\ServiceReferenceProveedor\WebServiceProveedores.wsdl" />
     <None Include="Connected Services\ServiceReferenceTrabajadores\CapaGUI.ServiceReferenceTrabajadores.HelloWorldResponse.datasource">
@@ -215,6 +233,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceReferenceGuias\" />
     <WCFMetadataStorage Include="Connected Services\ServiceReferenceProductos\" />
     <WCFMetadataStorage Include="Connected Services\ServiceReferenceProveedor\" />
     <WCFMetadataStorage Include="Connected Services\ServiceReferenceTrabajadores\" />
@@ -260,6 +279,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServiceReferenceProductos\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReferenceGuias\WebServiceGuias.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReferenceGuias\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReferenceGuias\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReferenceGuias\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

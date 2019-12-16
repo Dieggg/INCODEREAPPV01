@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarCompra">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="compra" type="tns:Compra" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Compra">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdGuia" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdProducto" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroUnidades" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarCompraResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AgregarGuia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="guia" type="tns:GuiaRecepcion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GuiaRecepcion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IDProveedor" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fecha" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarGuiaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CargarGuiaCompleta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="guia" type="tns:GuiaRecepcion" />
+            <s:element minOccurs="0" maxOccurs="1" name="compras" type="tns:ArrayOfCompra" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCompra">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Compra" nillable="true" type="tns:Compra" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CargarGuiaCompletaResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarCompraSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarCompra" />
+  </wsdl:message>
+  <wsdl:message name="AgregarCompraSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarGuiaSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarGuia" />
+  </wsdl:message>
+  <wsdl:message name="AgregarGuiaSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarGuiaResponse" />
+  </wsdl:message>
+  <wsdl:message name="CargarGuiaCompletaSoapIn">
+    <wsdl:part name="parameters" element="tns:CargarGuiaCompleta" />
+  </wsdl:message>
+  <wsdl:message name="CargarGuiaCompletaSoapOut">
+    <wsdl:part name="parameters" element="tns:CargarGuiaCompletaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceGuiasSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarCompra">
+      <wsdl:input message="tns:AgregarCompraSoapIn" />
+      <wsdl:output message="tns:AgregarCompraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarGuia">
+      <wsdl:input message="tns:AgregarGuiaSoapIn" />
+      <wsdl:output message="tns:AgregarGuiaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CargarGuiaCompleta">
+      <wsdl:input message="tns:CargarGuiaCompletaSoapIn" />
+      <wsdl:output message="tns:CargarGuiaCompletaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceGuiasSoap" type="tns:WebServiceGuiasSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarCompra">
+      <soap:operation soapAction="http://tempuri.org/AgregarCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarGuia">
+      <soap:operation soapAction="http://tempuri.org/AgregarGuia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargarGuiaCompleta">
+      <soap:operation soapAction="http://tempuri.org/CargarGuiaCompleta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceGuiasSoap12" type="tns:WebServiceGuiasSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarCompra">
+      <soap12:operation soapAction="http://tempuri.org/AgregarCompra" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarGuia">
+      <soap12:operation soapAction="http://tempuri.org/AgregarGuia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargarGuiaCompleta">
+      <soap12:operation soapAction="http://tempuri.org/CargarGuiaCompleta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceGuias">
+    <wsdl:port name="WebServiceGuiasSoap" binding="tns:WebServiceGuiasSoap">
+      <soap:address location="http://localhost:61368/WebServiceGuias.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceGuiasSoap12" binding="tns:WebServiceGuiasSoap12">
+      <soap12:address location="http://localhost:61368/WebServiceGuias.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
-
+using System.Data;
 
 namespace CapaGUI
 {
@@ -24,20 +24,17 @@ namespace CapaGUI
     /// </summary>
     public partial class CrearGuia : MetroWindow
     {
+        ServiceReferenceGuias.WebServiceGuiasSoapClient auxServicioGuias = new ServiceReferenceGuias.WebServiceGuiasSoapClient();
+        ServiceReferenceGuias.GuiaRecepcion auxGuia = new ServiceReferenceGuias.GuiaRecepcion();
+        List<ServiceReferenceGuias.Compra> auxCompras = new List<ServiceReferenceGuias.Compra>();
+
         public CrearGuia()
         {
             InitializeComponent();
+            CargarProductos();
             btnIngresarGuia.IsEnabled = false;
-
-            
-
-
-
         }
 
-   
-
- 
         private void BtnCargarMaterial_Click(object sender, RoutedEventArgs e)
         {
 
@@ -102,6 +99,26 @@ namespace CapaGUI
             imgEstado.Stretch = Stretch.Fill;
             imgEstado.Source = bi3;
             lblMensaje.Content = "Registro Guardado Correctamente";
+
+        }
+
+        private void CargarProductos()
+        {
+            ServiceReferenceProductos.WebServiceProductosSoapClient auxServiceProductos = new ServiceReferenceProductos.WebServiceProductosSoapClient();
+            DataSet ds = new DataSet();
+            ds = auxServiceProductos.EntregaProductoDataSet();
+            DataTable dt = new DataTable();
+            dt = ds.Tables[0];
+            DtgProductos.ItemsSource = dt.DefaultView;
+        }
+
+        private void BtnCargarProductos_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnSeleccionarProducto_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
