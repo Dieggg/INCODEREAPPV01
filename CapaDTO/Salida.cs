@@ -8,5 +8,10 @@ namespace CapaDTO
 {
     public class Salida
     {
+        public int Id { get; set; }
+        public int IdValeConsumo { get; set; }
+        public int IdProducto { get; set; }
+        public int NumeroUnidades { get; set; }
     }
 }
+

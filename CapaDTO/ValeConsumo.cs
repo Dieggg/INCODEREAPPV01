@@ -8,5 +8,9 @@ namespace CapaDTO
 {
     public class ValeConsumo
     {
+        public int Id { get; set; }
+        public int IdTrabajador { get; set; }
+        public DateTime Fecha { get; set; }
+        public String Tipo { get; set; }
     }
 }
