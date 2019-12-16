@@ -32,6 +32,7 @@ namespace CapaGUI
         {
             InitializeComponent();
             CargarProductos();
+            txtCantidadProducto.Text = "0";
             btnIngresarGuia.IsEnabled = false;
         }
 
@@ -84,8 +85,14 @@ namespace CapaGUI
 
         private void BtnIngresarGuia_Click(object sender, RoutedEventArgs e)
         {
-            
+            auxGuia.IDProveedor = Int32.Parse(lblId.Content.ToString());
+            var Fecha = DateTime.Now;
+            auxGuia.Fecha = Fecha;
 
+            ServiceReferenceGuias.Compra[] ArrayCompras = auxCompras.ToArray();
+            auxServicioGuias.CargarGuiaCompleta(auxGuia, ArrayCompras);
+            //LimpiarFormulario();
+            CargarProductos();
         }
 
         private void btnGuardarGuia_Click(object sender, RoutedEventArgs e)
@@ -114,12 +121,24 @@ namespace CapaGUI
 
         private void BtnCargarProductos_Click(object sender, RoutedEventArgs e)
         {
-
+            CargarProductos();
         }
 
         private void BtnSeleccionarProducto_Click(object sender, RoutedEventArgs e)
         {
+            DataRowView rowProducto = (DataRowView)DtgProductos.SelectedItems[0];
+            var auxIdProducto = (int)rowProducto[0];
 
+            ServiceReferenceGuias.Compra auxCompra = new ServiceReferenceGuias.Compra
+            {
+                NumeroUnidades = Int32.Parse(txtCantidadProducto.Text),
+                IdProducto = auxIdProducto
+            };
+
+            auxCompras.Add(auxCompra);
+
+            dgGuia.ItemsSource = null;
+            dgGuia.ItemsSource = auxCompras;
         }
     }
 }

@@ -74,12 +74,12 @@
                 <Button x:Name="btnCargarMaterial" Click="BtnCargarMaterial_Click" >Cargar Material a listado</Button>
             </StackPanel>
             <StackPanel  Orientation="Horizontal">
-                <DataGrid x:Name="dgGuia" Height="130" Width="440" Foreground="DeepSkyBlue" Margin="30 0 0 0" AutoGenerateColumns="True" Style="{StaticResource AzureDataGrid}">
+                <DataGrid x:Name="dgGuia" Height="130" Width="440" Foreground="DeepSkyBlue" Margin="30 0 0 0" AutoGenerateColumns="False" Style="{StaticResource AzureDataGrid}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Codigo"  IsReadOnly="True"  Binding="{Binding Path=Codigo}"/>
-                        <DataGridTextColumn Header="Material "  IsReadOnly="True" Binding="{Binding Path=Material}"  />
-                        <DataGridTextColumn Header="Cantidad"  IsReadOnly="True"  Binding="{Binding Path=Cantidad}" />
-                        <DataGridTextColumn Header="Unidad de Medida"  IsReadOnly="True"  Binding="{Binding Path=UM}" />
+                        <DataGridTextColumn Header="Codigo"  IsReadOnly="True"  Binding="{Binding IdProducto}"/>
+                        <DataGridTextColumn Header="Material "  IsReadOnly="True" Binding="{Binding NumeroUnidades}"  />
+                        <!--<DataGridTextColumn Header="Cantidad"  IsReadOnly="True"  Binding="{Binding Path=Cantidad}" />
+                        <DataGridTextColumn Header="Unidad de Medida"  IsReadOnly="True"  Binding="{Binding Path=UM}" />-->
                     </DataGrid.Columns>
 
                 </DataGrid>
