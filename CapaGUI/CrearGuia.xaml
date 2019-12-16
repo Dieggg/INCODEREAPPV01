@@ -52,29 +52,19 @@
 
             </StackPanel>
 
-            <StackPanel  Orientation="Horizontal" Margin="0 10 0 0">
-                <Label Margin="30 0 0 0">Codigo</Label>
-                <TextBox x:Name="txtCodigo" Margin="71 0 0 0" Width="200"></TextBox>
-            </StackPanel>
-            <StackPanel  Orientation="Horizontal" Margin="0 20 0 0">
-                <Label Margin="30 0 0 0" >Material</Label>
-                <ComboBox Margin="60 0 0 0" Width="200"></ComboBox>
-            </StackPanel>
-            <StackPanel  Orientation="Horizontal" Margin="0 20 0 0">
+            <DataGrid x:Name ="DtgProductos" Margin="20 10 0 0" Width="376" Height="100" HorizontalAlignment="Left"/>
+            <StackPanel Orientation="Horizontal" Margin="20 10 0 0" >
+                <Button x:Name="btnCargarProductos" Content="Recargar"   Click="BtnCargarProductos_Click"/>
+                <Button x:Name="btnSeleccionarProducto" Content="Seleccionar"   Click="BtnSeleccionarProducto_Click"/>
                 <Label Margin="30 0 0 0">Cantidad</Label>
-                <TextBox x:Name="txtCantidad" Margin="60 0 0 0" Width="200"></TextBox>
+                <TextBox x:Name="txtCantidad" Margin="0 0 0 0" Width="90"></TextBox>
             </StackPanel>
-            <StackPanel  Orientation="Horizontal" Margin="0 20 0 0">
-                <Label Margin="30 0 0 0">U. Med.</Label>
-                <TextBox x:Name="txtUm" Margin="68 0 0 0" Width="30" ></TextBox>
 
-            </StackPanel>
-            <StackPanel  Orientation="Horizontal" Margin="30 20 0 30">
+           
 
-                <Button x:Name="btnCargarMaterial" Click="BtnCargarMaterial_Click" >Cargar Material a listado</Button>
-            </StackPanel>
+            <StackPanel  Orientation="Horizontal" Margin="30 20 0 30"/>
             <StackPanel  Orientation="Horizontal">
-                <DataGrid x:Name="dgGuia" Height="130" Width="440" Foreground="DeepSkyBlue" Margin="30 0 0 0" AutoGenerateColumns="False" Style="{StaticResource AzureDataGrid}">
+                <DataGrid x:Name="dgGuia" Height="130" Width="440" Foreground="DeepSkyBlue" Margin="30 0 0 0" AutoGenerateColumns="True" Style="{StaticResource AzureDataGrid}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Codigo"  IsReadOnly="True"  Binding="{Binding IdProducto}"/>
                         <DataGridTextColumn Header="Material "  IsReadOnly="True" Binding="{Binding NumeroUnidades}"  />
@@ -82,14 +72,16 @@
                         <DataGridTextColumn Header="Unidad de Medida"  IsReadOnly="True"  Binding="{Binding Path=UM}" />-->
                     </DataGrid.Columns>
 
-                </DataGrid>
+                    
 
+                </DataGrid>
+               
             </StackPanel>
             <StackPanel  Orientation="Horizontal" Margin="30 10 0 0" HorizontalAlignment="Right">
                 <Button x:Name="btnGuardarGuia" Margin="0 0 10 0" Click="btnGuardarGuia_Click">Guardar</Button>
                 <Button x:Name="btnIngresarGuia" Margin="0 0 10 0" Click="BtnIngresarGuia_Click">Ingresar</Button>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Background="DeepSkyBlue" Height="25"  Margin="0 10 0 0">
+            <StackPanel Orientation="Horizontal" Background="LightYellow" Height="25"  Margin="0 15 0 0">
                 <Image x:Name="imgEstado"></Image>
                 <Label x:Name="lblMensaje"></Label>
             </StackPanel>
@@ -97,12 +89,10 @@
 
         </StackPanel>
         <StackPanel>
-            <Label Content="Listado de productos (Inventario)"></Label>
-            <DataGrid x:Name ="DtgProductos" />
-            <Label Content="Cantidad" ></Label>
-            <TextBox x:Name="txtCantidadProducto" />
-            <Button x:Name="btnCargarProductos" Content="Recargar"   Click="BtnCargarProductos_Click"/>
-            <Button x:Name="btnSeleccionarProducto" Content="Seleccionar"   Click="BtnSeleccionarProducto_Click"/>
+         
+            
+           
+            
         </StackPanel>
 
     </Grid>
