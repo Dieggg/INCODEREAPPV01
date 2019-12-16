@@ -92,6 +92,7 @@ namespace CapaGUI
             ServiceReferenceGuias.Compra[] ArrayCompras = auxCompras.ToArray();
             auxServicioGuias.CargarGuiaCompleta(auxGuia, ArrayCompras);
             //LimpiarFormulario();
+            dgGuia.ItemsSource = null;
             CargarProductos();
         }
 

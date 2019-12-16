@@ -49,7 +49,7 @@ namespace CapaNegocio
                     IdGuia = IdUltimaguia
                 };
 
-                MessageBox.Show("id prod:" + compra.IdProducto + "id guia: " + compra.IdGuia);
+                //MessageBox.Show("id prod:" + compra.IdProducto + "id guia: " + compra.IdGuia);
                 NegocioCompra auxNegocioCompra = new NegocioCompra();
                 auxNegocioCompra.GrabarCompra(auxCompra);
 

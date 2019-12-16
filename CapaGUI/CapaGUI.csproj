@@ -116,6 +116,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ServiceReferenceValeConsumo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="CrearProducto.xaml.cs">
       <DependentUpon>CrearProducto.xaml</DependentUpon>
     </Compile>
@@ -191,6 +196,13 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceTrabajadores\WebServiceTrabajadores.wsdl" />
+    <None Include="Connected Services\ServiceReferenceValeConsumo\CapaGUI.ServiceReferenceValeConsumo.GenerarConsumoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceValeConsumo\CapaGUI.ServiceReferenceValeConsumo.HelloWorldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceValeConsumo\WebServiceValeConsumo.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
@@ -237,6 +249,7 @@
     <WCFMetadataStorage Include="Connected Services\ServiceReferenceProductos\" />
     <WCFMetadataStorage Include="Connected Services\ServiceReferenceProveedor\" />
     <WCFMetadataStorage Include="Connected Services\ServiceReferenceTrabajadores\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceReferenceValeConsumo\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServiceReferenceProveedor\WebServiceProveedores.disco" />
@@ -294,6 +307,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServiceReferenceGuias\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReferenceValeConsumo\WebServiceValeConsumo.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReferenceValeConsumo\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReferenceValeConsumo\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReferenceValeConsumo\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
